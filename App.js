@@ -1,39 +1,34 @@
 import React from 'react';
 import { 
+  Dimensions,
   StyleSheet, 
   SafeAreaView, 
-  Alert, 
-  Button, 
   StatusBar, 
-  Platform 
+  Platform, 
+  View, 
+  Text
 } from 'react-native';
+import {useDimensions, useDeviceOrientation} from "@react-native-community/hooks";
 
 export default function App() {
+  const {landscape} = useDeviceOrientation();
   return (
-    <SafeAreaView style={styles.container,containerStyle}>
-      <Button
-        color="green"
-        title="Hire Esther!!"
-        onPress={() => 
-          Alert.alert("Shopify", "I am ready", [
-            {text: "Yes", onPress: () => console.log("Yes")},
-            {text: "Hired", onPress: () => console.log("Hired")}
-          ])
-          // Alert.prompt("My title", "My Message",(text => console.log(text)))
-        }
-      />
+    <SafeAreaView style={styles.container}>
+      <View style={{
+        backgroundColor: 'dodgerblue',
+        width: '100%',
+        height: landscape ? '100%' : '30%',
+      }}> 
+      {/* <Text>Test</Text> */}
+      </View>
     </SafeAreaView>
   );
 }
-
-const containerStyle = {backgroundColor: "orange"}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
