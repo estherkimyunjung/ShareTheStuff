@@ -1,34 +1,57 @@
 import React from 'react';
-import { 
-  Dimensions,
-  StyleSheet, 
-  SafeAreaView, 
-  StatusBar, 
-  Platform, 
-  View, 
-  Text
-} from 'react-native';
-import {useDimensions, useDeviceOrientation} from "@react-native-community/hooks";
+import { View } from 'react-native';
 
 export default function App() {
-  const {landscape} = useDeviceOrientation();
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: 'dodgerblue',
-        width: '100%',
-        height: landscape ? '100%' : '30%',
-      }}> 
-      {/* <Text>Test</Text> */}
-      </View>
-    </SafeAreaView>
+    <View 
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row", 
+        justifyContent: "center",
+        // alignItems: "center",
+        alignContent: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          flexBasis: 100,
+          // width: 400,
+          // flex: -1,
+          height: 300,
+          alignSelf: "flex-start",
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 200,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gray",
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "greenyellow",
+          width: 100,
+          height: 100,
+        }}
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
